@@ -9,7 +9,8 @@ public class player : MonoBehaviour
     public bool isSprinting;
     private Vector2 input;
     private float acceleration = 1.0001f;
-    private float topSpeed = 0.02f; //boots = 0.025 
+    private float topSpeed = 0.5f; //boots = 0.025 
+    private float sprintSpeed = 0.75f;
     private float movementTime = 0.0f;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         movementTime += Time.deltaTime;
@@ -25,16 +26,16 @@ public class player : MonoBehaviour
         input.y = Input.GetAxisRaw("Vertical");
         if (Input.GetButton("Run"))
         {
-            topSpeed = 0.025f;
+            topSpeed = sprintSpeed;
             isSprinting = true;
-            movementTime = 0.15f;
+            //movementTime = 0.15f;
         } 
         else {
-/*            if (isSprinting == true)
-            {
-                movementTime = 1.0f;
-            }*/
-            topSpeed = 0.02f;
+            /*            if (isSprinting == true)
+                        {
+                            movementTime = 1.0f;
+                        }*/
+            topSpeed = 0.5f;
             isSprinting = false;
         }
         if (input != Vector2.zero)

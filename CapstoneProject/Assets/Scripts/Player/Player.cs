@@ -1,16 +1,17 @@
+using Assets.Models.PlayerConstants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float moveSpeed;
     public bool isMoving;
     public bool isSprinting;
     private Vector2 input;
-    private float acceleration = 1.0001f;
-    private float topSpeed = 0.5f; //boots = 0.025 
-    private float sprintSpeed = 0.75f;
+    private float acceleration = PlayerConstants.Acceleration;
+    private float topSpeed = PlayerConstants.BaseTopSpeed;
+    private float sprintSpeed = PlayerConstants.SprintTopSpeed;
     private float movementTime = 0.0f;
     // Start is called before the first frame update
     void Start()
